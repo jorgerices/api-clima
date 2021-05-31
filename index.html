@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="/secrets.js"></script>
     <title>Document</title>
 </head>
 <body>
     <h1>Pronóstico del tiempo en tu ciudad</h1>
     <form action="">
         <label for="input__city">Ciudad:</label>
-        <input id="input__city" type="text" placeholder="Ingresa ciudad" onkeyup="javascript:this.value=this.value.toUpperCase()">
+        <input id="input__city" type="text" placeholder="Ingresa ciudad">
         <label for="input__country">País:</label>
         <input id="input__country" type="text" placeholder="Ingresa país">
         <button type="submit">Consultar el tiempo</button>
@@ -26,7 +26,7 @@
                 const city = $('#input__city').val();
                 const country = $('#input__country').val();
                 
-                $.get('http://api.openweathermap.org/data/2.5/weather?q='+city+','+country+'&units=metric&appid=26de0cb2cd69bdc430470b74898b7662&lang=es', function(data) {
+                $.get('http://api.openweathermap.org/data/2.5/weather?q='+city+','+country+'&units=metric&appid='+appid+'&lang=es', function(data) {
 
                     $('#div__weather').html(
                         `${data.name}: ${data.weather[0].description}
